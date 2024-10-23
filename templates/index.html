@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digit Recognition</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Digit Recognition</h1>
+    
+    <div class="main-content">
+      <!-- Upload Form -->
+      <div class="form-container">
+        <form id="upload-form" class="form">
+          <div class="file-upload">
+            <label for="file-upload" class="upload-label">
+              <div class="upload-icon">&#8682;</div>
+              <p>Click to upload or drag and drop</p>
+              <p class="small-text">PNG, JPG, GIF up to 10MB</p>
+            </label>
+            <input id="file-upload" type="file" class="hidden" accept="image/*" />
+          </div>
+          
+          <div class="preview-container" id="preview-container">
+            <img id="preview" alt="Image Preview" class="preview-img" />
+            <button type="button" id="clear-btn" class="clear-btn hidden">&#x2716;</button>
+          </div>
+          
+          <button type="submit" id="submit-btn" class="submit-btn" disabled>Predict</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Popup for Prediction Result -->
+  <div id="popup-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn" id="close-popup">&times;</span>
+      <p class="result-text">Prediction Result: </p>
+      <span id="popup-prediction-result" class="predicted-digit"></span>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
